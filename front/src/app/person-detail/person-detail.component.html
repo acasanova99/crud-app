@@ -1,0 +1,93 @@
+<div fxLayout="row" fxLayout.xs="column" fxLayoutGap="20px" fxLayoutAlign="start center" class="flex-container">
+    <div fxFlex="35" fxFlexOrder="1">
+        <mat-card appearance="outlined">
+            <mat-card-header>
+                <mat-card-title *ngIf="isAddMode">Add </mat-card-title>
+                <mat-card-title *ngIf="!isAddMode">Edit </mat-card-title>
+            </mat-card-header>
+
+            <mat-card-content>
+                <form [formGroup]="personForm">
+
+                    <div layout="row" layout-align="center start">
+                        <mat-form-field appearance="fill" [hideRequiredMarker]="hideRequiredControl.value"
+                            [floatLabel]="floatLabelControl.value">
+                            <mat-label>name</mat-label>
+                            <input matInput placeholder="name" type="text" formControlName="name" required
+                                class="form-control">
+                            <mat-error *ngIf="isValidInput('name') && personForm.controls['name'].errors?.required">
+                                name is required.</mat-error>
+                        </mat-form-field>
+
+                        <mat-form-field appearance="fill" [hideRequiredMarker]="hideRequiredControl.value"
+                            [floatLabel]="floatLabelControl.value">
+                            <mat-label>surname </mat-label>
+                            <input matInput placeholder="surname" type="text" formControlName="surname" required
+                                class="form-control">
+                            <mat-error
+                                *ngIf="isValidInput('surname') && personForm.controls['surname'].errors?.required">
+                                surname is required.</mat-error>
+                        </mat-form-field>
+                    </div>
+
+                    <div layout="row" layout-align="center start">
+
+                        <div layout="row" layout-align="center start">
+                            <mat-form-field appearance="fill" [hideRequiredMarker]="hideRequiredControl.value"
+                                [floatLabel]="floatLabelControl.value">
+                                <mat-label>password</mat-label>
+                                <input matInput placeholder="password" type="text" formControlName="password" required
+                                    class="form-control">
+                                <mat-error
+                                    *ngIf="isValidInput('password') && personForm.controls['password'].errors?.required">
+                                    password is required.</mat-error>
+                            </mat-form-field>
+
+                            <mat-form-field appearance="fill" [hideRequiredMarker]="hideRequiredControl.value"
+                                [floatLabel]="floatLabelControl.value">
+                                <mat-label>email </mat-label>
+                                <input matInput placeholder="email" type="text" formControlName="email" required
+                                    class="form-control" readonly *ngIf="!isAddMode">
+                                <input matInput placeholder="email" type="text" formControlName="email" required
+                                    class="form-control" *ngIf="isAddMode">
+                                <mat-error
+                                    *ngIf="isValidInput('email') && personForm.controls['email'].errors?.required">
+                                    email is required.</mat-error>
+                            </mat-form-field>
+                        </div>
+
+                    </div>
+
+                    <div layout="row" layout-align="center start">
+                        <mat-form-field appearance="outline">
+                            <mat-label>birthday </mat-label>
+                            <input matInput formControlName="birthday" placeholder="birthday"
+                                [matDatepicker]="releasedAtPicker" (click)="releasedAtPicker.open()">
+                            <mat-datepicker-toggle matSuffix [for]="releasedAtPicker">
+                            </mat-datepicker-toggle>
+                            <mat-datepicker #releasedAtPicker>
+                            </mat-datepicker>
+                        </mat-form-field>
+                    </div>
+
+                    <div layout="row" layout-align="center start">
+                        <mat-card-actions>
+                            <button mat-icon-button color="primary" (click)="save()" [disabled]="!personForm.valid"
+                                type="submit" class="btn btn-warning">
+                                <mat-icon class="mat-18" matTooltip="Save">check</mat-icon>
+                            </button>
+                            <button mat-icon-button color="primary" (click)="resetForm()" type="submit"
+                                class="btn btn-warning">
+                                <mat-icon class="mat-18" matTooltip="Reset">undo</mat-icon>
+                            </button>
+                            <button mat-icon-button color="primary" (click)="backToList()" type="submit"
+                                class="btn btn-warning">
+                                <mat-icon class="mat-18" matTooltip="Go back to the list">list</mat-icon>
+                            </button>
+                        </mat-card-actions>
+                    </div>
+                </form>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>

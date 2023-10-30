@@ -1,0 +1,28 @@
+.flex-container .mat-mdc-form-field+.mat-form-field {
+    margin-left: 8px;
+    width: 220px;
+}
+
+.flex-container .mat-mdc-form-field {
+    width: 220px;
+}
+
+.flex-container .mat-mdc-form-field.input-description {
+    width: 450px;
+}
+
+.flex-container form {
+    margin-bottom: 20px;
+}
+
+.flex-container form>* {
+    margin: 5px 0;
+}
+
+.example-container .mat-mdc-radio-button {
+    margin: 0 12px;
+}
+
+.text-invisible {
+    opacity: 0;
+}
