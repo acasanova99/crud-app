@@ -1,0 +1,31 @@
+# Ignore Node.js modules
+front/node_modules/
+
+# Ignore build output
+front/dist/
+front/dist-test/
+front/dist-ssr/
+front/dist-browser/
+front/dist-server/
+front/dist-server-test/
+front/dist-server-ssr/
+
+# Ignore Angular CLI configuration
+front/angular.json
+front/angular-cli.json
+front/tsconfig.json
+front/tsconfig.app.json
+front/tsconfig.spec.json
+
+# Ignore Visual Studio Code settings (optional)
+front/.vscode/
+
+# Ignore log files and test results
+front/*.log
+front/*.junit.xml
+front/*.xml
+front/coverage/
+front/test-output/
+
+# Ignore system files and hidden files (e.g., .DS_Store on macOS)
+front/**/.*
