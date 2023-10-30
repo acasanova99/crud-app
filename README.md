@@ -21,6 +21,7 @@ docker run -d --name crud-database \
 ```
 
 ## Backend
+
 > Run all commands from <root>/back
 
 Create and image form the source code (2-3min):
@@ -44,7 +45,29 @@ Alternatively, you can always run this application locally:
 ```
 
 ## Frontend
+
 > Run all commands from <root>/front
+
+### Angular Installation
+
+```bash
+sudo apt install nodejs
+sudo apt install npm
+npm install -g @angular/cli
+ng add @angular/material
+npm install
+```
+
+> The previous command download all the necessary dependencies.
+> Then you can locally launch the frontend with:
+
+```bash
+ng serve
+```
+
+> It is available at [http:localhost:4200/person](http:localhost:4200/person)
+
+-- FUTURE WORK (RUN FRONT INTO CONTAINER. NEEDS NGINX PROXY... . DO NOT RUN) --
 
 You can generate the image of the frontend with the following commands.
 
@@ -68,6 +91,8 @@ docker run -d --name crud-front \
  -p 4200:4200 front:latest
 
 ```
+
+-- END OF FUTURE WORK --
 
 ### Interact with the backend
 

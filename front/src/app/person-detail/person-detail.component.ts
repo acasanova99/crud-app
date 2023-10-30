@@ -112,9 +112,9 @@ export class PersonDetailComponent implements OnInit {
     } else {
       this.service.updatePerson(this.selEmail, this.fromPerson).subscribe(result => {
         console.log("Update OK: ", result)
-        this.openSnackBar("Person Created Successfully", "Status: " + result.code)
+        this.openSnackBar("Person Updated Successfully", "Status: " + result.code)
       }, error => {
-        console.log("Create WARN: ", error)
+        console.log("Update WARN: ", error)
         this.openSnackBar(error.error.payload, "Status: " + error.error.code)
       });
     }

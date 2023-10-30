@@ -19,8 +19,8 @@ export interface Response<T> {
 })
 
 export class HttpClientService {
-  url:string = 'http://crud-back:8080/person'
-  //url: string = 'http://localhost:8080/person'
+  // url:string = 'http://crud-back:8080/person'
+  url: string = 'http://localhost:8080/person'
 
   headers: HttpHeaders = new HttpHeaders({ 'Content-Type': 'application/json' })
 

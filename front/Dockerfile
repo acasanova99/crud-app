@@ -1,11 +1,15 @@
-FROM node:latest as build
+FROM node:16-alpine AS build
 
-WORKDIR /usr/local/app
-COPY ./ /usr/local/app
+WORKDIR /app
+
+COPY package*.json ./
+
 RUN npm install
+
+COPY . .
+
 RUN npm run build
 
+EXPOSE 4200
 
-FROM nginx:latest
-COPY --from=build /usr/local/app/dist/front /usr/share/nginx/html
-EXPOSE 80
+CMD ["npm", "start"]
